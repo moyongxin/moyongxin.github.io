@@ -23,6 +23,21 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: cd games/lifeRestart/lifeRestart && npm install
-    - run: cd games/lifeRestart/lifeRestart && npm run build
-    - run: cd games/lifeRestart/lifeRestart && npm test
+    - name: Build and Push
+      env:
+        TOKEN: ${{ secrets.TOKEN }}
+        REF: github.com/${{github.repository}}
+        MYEMAIL: 1134200680@qq.com
+        MYNAME: ${{github.repository_owner}}
+      run: |
+        git config --global user.email "${MYEMAIL}"
+        git config --global user.name "${MYNAME}"
+        git remote add origin https://${REF}
+        cd games/lifeRestart/lifeRestart
+        npm i
+        npm run build --if-present
+        npm test
+        git add .
+        git commit -m "Updated By Github Actions With Build ${{github.run_number}} of ${{github.workflow}} For Github Pages"
+        git branch -M main
+        git push --force --quiet "https://${TOKEN}@${REF}"

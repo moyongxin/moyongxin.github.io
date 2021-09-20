@@ -38,5 +38,5 @@ jobs:
         npm test
         git add .
         git commit -m "Updated By Github Actions With Build ${{github.run_number}} of ${{github.workflow}} For Github Pages"
-        git branch -M master
-        git push --force --quiet "https://${TOKEN}@${REF}" master:gh-pages
+        git branch -M gh-pages
+        git push --force --quiet "https://${TOKEN}@${REF}" gh-pages

@@ -257,7 +257,7 @@ class App{
                     return;
                 }
                 talentPage.find('#next').hide()
-                this.#totalMax = 20 + this.#life.getTalentAllocationAddition(Array.from(this.#talentSelected).map(({id})=>id));
+                this.#totalMax = 10000000 + this.#life.getTalentAllocationAddition(Array.from(this.#talentSelected).map(({id})=>id));
                 this.switch('property');
             })
 
@@ -539,7 +539,7 @@ class App{
                 this.#life.talentExtend(this.#selectedExtendTalent);
                 this.#selectedExtendTalent = null;
                 this.#talentSelected.clear();
-                this.#totalMax = 20;
+                this.#totalMax = 10000000;
                 this.#isEnd = false;
                 this.switch('index');
             });
@@ -669,7 +669,7 @@ class App{
                     this.#currentPage = 'talent';
                     talentPage.find('ul.selectlist').empty();
                     talentPage.find('#random').show();
-                    this.#totalMax = 20;
+                    this.#totalMax = 10000000;
                 },
             },
             property: {

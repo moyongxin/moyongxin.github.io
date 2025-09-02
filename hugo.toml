@@ -1,5 +1,4 @@
 baseURL = 'https://blog.moyongxin.top/'
-languageCode = 'en-us'
 title = "qwertyuiop's blog"
 pagination.pagerSize = 5
 
@@ -72,9 +71,10 @@ site = ""
 [languages]
 [languages.en]
 languageName = "English"
+languageCode = 'en-us'
 
 [languages.en.params]
-subtitle = "A simple, retro theme for Hugo"
+subtitle = "Define, Create And Share."
 owner = ""
 keywords = ""
 copyright = ""
@@ -104,9 +104,10 @@ url = "/showcase"
 
 [languages.zh]
 languageName = "中文"
+languageCode = 'zh-cn'
 
 [languages.zh.params]
-subtitle = "一个简单的复古主题"
+subtitle = "定义、创造与分享。"
 owner = ""
 keywords = ""
 copyright = ""

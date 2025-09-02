@@ -137,6 +137,6 @@ url = "/showcase"
 path = 'github.com/panr/hugo-theme-terminal/v4'
 
 [outputs]
-home = ['html', 'rss', 'json']
-section = ['html', 'rss', 'json']
-taxonomy = ['html', 'rss', 'json']
+home = ['html', 'rss']
+section = ['html', 'rss']
+taxonomy = ['html', 'rss']

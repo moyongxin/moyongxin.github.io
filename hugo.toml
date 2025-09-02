@@ -30,17 +30,14 @@ autoCover = true
 
 # set post to show the last updated
 # If you use git, you can set `enableGitInfo` to `true` and then post will automatically get the last updated
-showLastUpdated = false
-
-# Provide a string as a prefix for the last update date. By default, it looks like this: 2020-xx-xx [Updated: 2020-xx-xx] :: Author
-# updatedDatePrefix = "Updated"
+showLastUpdated = true
 
 # whether to show a page's estimated reading time
-# readingTime = false # default
+readingTime = true
 
 # whether to show a table of contents
 # can be overridden in a page's front-matter
-# Toc = false # default
+Toc = true
 
 # set title for the table of contents
 # can be overridden in a page's front-matter
@@ -59,14 +56,6 @@ showLastUpdated = false
 # dateFormat = "2006-01-02"
 # Example format, with date, time, and timezone abbreviation:
 # dateFormat = "2006-01-02 3:04:06 PM MST"
-
-
-[params.twitter]
-# set Twitter handles for Twitter cards
-# see https://developer.twitter.com/en/docs/tweets/optimize-with-cards/guides/getting-started#card-and-content-attribution
-# do not include @
-creator = ""
-site = ""
 
 [languages]
 [languages.en]
@@ -87,6 +76,8 @@ missingContentMessage = "Page not found..."
 missingBackButtonLabel = "Back to home page"
 minuteReadingTime = "min read"
 words = "words"
+updatedDatePrefix = "Updated"
+TocTitle = "Table of Contents"
 
 [languages.en.params.logo]
 logoText = "qwertyuiop's blog"
@@ -120,6 +111,8 @@ missingContentMessage = "页面未找到..."
 missingBackButtonLabel = "返回主页"
 minuteReadingTime = "分钟阅读"
 words = "字"
+updatedDatePrefix = "更新于"
+TocTitle = "目录"
 
 [languages.zh.params.logo]
 logoText = "qwertyuiop's blog"
@@ -144,6 +137,6 @@ url = "/showcase"
 path = 'github.com/panr/hugo-theme-terminal/v4'
 
 [outputs]
-home = ['html', 'rss']
-section = ['html', 'rss']
-taxonomy = ['html', 'rss']
+home = ['html', 'rss', 'json']
+section = ['html', 'rss', 'json']
+taxonomy = ['html', 'rss', 'json']

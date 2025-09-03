@@ -1,6 +1,8 @@
 baseURL = 'https://blog.moyongxin.top/'
 title = "qwertyuiop's blog"
+enableGitInfo = true
 pagination.pagerSize = 5
+defaultContentLanguage = "zh"
 
 # Required for Chroma and the custom syntax highlighting.
 [markup.highlight]
@@ -94,7 +96,7 @@ name = "Showcase"
 url = "/showcase"
 
 [languages.zh]
-languageName = "中文"
+languageName = "简体中文"
 languageCode = 'zh-cn'
 
 [languages.zh.params]

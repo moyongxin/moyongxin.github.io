@@ -1,0 +1,45 @@
+<footer class="footer">
+    <div class="footer__inner">
+        <div class="feeds">
+            <svg height="24px" version="1.1" viewBox="0 0 512 512" width="24px" xml:space="preserve"
+                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <g id="_x34_3-rss">
+                    <g>
+                        <path
+                            d="M166.526,405.532c0,33.033-26.705,59.807-59.654,59.807c-32.943,0-59.648-26.773-59.648-59.807     c0-33.039,26.705-59.813,59.648-59.813C139.821,345.72,166.526,372.493,166.526,405.532L166.526,405.532z M166.526,405.532"
+                            style="fill:#FFA000;" />
+                        <path
+                            d="M47.223,186.229v79.76c109.64,0,198.843,89.418,198.843,199.35h79.52     C325.586,311.448,200.707,186.229,47.223,186.229L47.223,186.229z M47.223,186.229"
+                            style="fill:#FFA000;" />
+                        <path
+                            d="M47.223,46.662v79.757c186.408,0,338.042,152.01,338.042,338.92h79.512     C464.777,234.471,277.473,46.662,47.223,46.662L47.223,46.662z M47.223,46.662"
+                            style="fill:#FFA000;" />
+                    </g>
+                </g>
+                <g id="Layer_1" />
+            </svg>
+            <span>Subscribe to&nbsp;<a href="{{ .Site.BaseURL }}index.xml">this site</a></span>
+            <span>&nbsp;|&nbsp;<a href="./index.xml">this page</a></span>
+        </div>
+        <div class="copyright">
+            &copy; 2025-{{ .Date.Year }} &nbsp; <a href="https://github.com/moyongxin">moyongxin</a>
+        </div>
+    </div>
+</footer>
+
+<style>
+    .footer .footer__inner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: column nowrap;
+    }
+
+    .footer .feeds {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: row wrap;
+        flex: 1;
+    }
+</style>

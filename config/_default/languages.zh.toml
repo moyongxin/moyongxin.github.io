@@ -1,0 +1,33 @@
+languageName = "简体中文"
+languageCode = 'zh-cn'
+
+[params]
+subtitle = "定义、创造与分享。"
+owner = ""
+keywords = ""
+copyright = ""
+menuMore = "显示更多"
+readMore = "阅读更多"
+readOtherPosts = "阅读其他文章"
+newerPosts = "更新的文章"
+olderPosts = "旧的文章"
+missingContentMessage = "页面未找到..."
+missingBackButtonLabel = "返回主页"
+minuteReadingTime = "分钟阅读"
+words = "字"
+updatedDatePrefix = "更新于"
+TocTitle = "目录"
+
+[params.logo]
+logoText = "qwertyuiop's blog"
+logoHomeLink = "/"
+
+[menu]
+[[menu.main]]
+identifier = "about"
+name = "关于"
+url = "/about"
+[[menu.main]]
+identifier = "showcase"
+name = "展示"
+url = "/showcase"

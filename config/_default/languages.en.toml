@@ -1,0 +1,33 @@
+languageName = "English"
+languageCode = 'en-us'
+
+[params]
+subtitle = "Define, Create And Share."
+owner = ""
+keywords = ""
+copyright = ""
+menuMore = "Show more"
+readMore = "Read more"
+readOtherPosts = "Read other posts"
+newerPosts = "Newer posts"
+olderPosts = "Older posts"
+missingContentMessage = "Page not found..."
+missingBackButtonLabel = "Back to home page"
+minuteReadingTime = "min read"
+words = "words"
+updatedDatePrefix = "Updated"
+TocTitle = "Table of Contents"
+
+[params.logo]
+logoText = "qwertyuiop's blog"
+logoHomeLink = "/"
+
+[menu]
+[[menu.main]]
+identifier = "about"
+name = "About"
+url = "/about"
+[[menu.main]]
+identifier = "showcase"
+name = "Showcase"
+url = "/showcase"

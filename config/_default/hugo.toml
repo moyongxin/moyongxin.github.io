@@ -5,6 +5,9 @@ pagination.pagerSize = 5
 defaultContentLanguage = "zh"
 comments = true
 
+[markup.goldmark.parser.attribute]
+block = true
+
 # Required for Chroma and the custom syntax highlighting.
 [markup.highlight]
 noClasses = false

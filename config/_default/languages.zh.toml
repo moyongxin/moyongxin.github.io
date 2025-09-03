@@ -3,8 +3,8 @@ languageCode = 'zh-CN'
 
 [params]
 subtitle = "定义、创造与分享。"
-owner = ""
-keywords = ""
+owner = "moyongxin"
+keywords = "计算机科学"
 copyright = ""
 menuMore = "显示更多"
 readMore = "阅读更多"

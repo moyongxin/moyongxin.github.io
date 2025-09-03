@@ -3,6 +3,7 @@ title = "qwertyuiop's blog"
 enableGitInfo = true
 pagination.pagerSize = 5
 defaultContentLanguage = "zh"
+comments = true
 
 # Required for Chroma and the custom syntax highlighting.
 [markup.highlight]

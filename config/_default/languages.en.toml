@@ -1,5 +1,5 @@
 languageName = "English"
-languageCode = 'en-us'
+languageCode = 'en'
 
 [params]
 subtitle = "Define, Create And Share."
@@ -20,14 +20,14 @@ TocTitle = "Table of Contents"
 
 [params.logo]
 logoText = "qwertyuiop's blog"
-logoHomeLink = "/"
+logoHomeLink = "/en"
 
 [menu]
 [[menu.main]]
 identifier = "about"
 name = "About"
-url = "/about"
+url = "/en/about"
 [[menu.main]]
 identifier = "showcase"
 name = "Showcase"
-url = "/showcase"
+url = "/en/showcase"

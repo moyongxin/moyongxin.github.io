@@ -14,7 +14,7 @@ olderPosts = "旧的文章"
 missingContentMessage = "页面未找到..."
 missingBackButtonLabel = "返回主页"
 minuteReadingTime = "分钟阅读"
-words = "字"
+words = "词"
 updatedDatePrefix = "更新于"
 TocTitle = "目录"
 

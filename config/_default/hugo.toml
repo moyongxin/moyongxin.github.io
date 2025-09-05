@@ -24,3 +24,7 @@ path = 'github.com/panr/hugo-theme-terminal/v4'
 home = ['html', 'rss']
 section = ['html', 'rss']
 taxonomy = ['html', 'rss']
+
+[caches]
+[caches.images]
+dir = ':cacheDir/images'

@@ -111,7 +111,7 @@ MSVC 是微软提供的 C++ 编译器，集成在 Visual Studio 中。安装 [Vi
 ### 关于 C++ 的扩展
 VSCode 本身**并不直接支持** C++ 语言的智能感知、调试等功能，这些功能主要通过扩展来实现。以下是一些常用的 C++ 相关扩展：
 - **C/C++**(Microsoft)：提供基本的 C/C++ 语言支持，包括语法高亮、代码补全、调试等功能。
-- **clangd**(LLVM)：基于 Clangd 语言服务器，提供更强大的代码补全和错误检查功能（但不包含调试支持，可能需要与 C/C++ 扩展配合使用）。
+- **clangd**(LLVM)：基于 Clangd 语言服务器，提供更强大的代码补全和错误检查功能（但不包含调试支持，可能需要与 C/C++ 扩展配合使用，且不推荐在单文件项目使用）。
 - **C/C++ Compile Run**(danielpinto8zz6)：提供一键编译和运行 C/C++ 代码的功能，适合单文件程序（如算法竞赛等）。
 
 ### VSCode 扩展安装
@@ -136,6 +136,7 @@ VSCode 本身**并不直接支持** C++ 语言的智能感知、调试等功能�
 - 更改使用的 C++ 标准
 - 等等
 {{< figure src="c_cpp_config.png" alt="C/C++ 配置" caption="C/C++ 配置界面" >}}
+
 我们需要确保编译器路径（界面往右拉有下拉菜单，里面是自动探测到的编译器）指向正确的编译器可执行文件（如 `gcc.exe`、`g++.exe`、`cl.exe`（即 MSVC，注意要选择路径为 `*/Hostx64/x64/cl.exe` 的编译器） 或 `clang++.exe`），然后选择对应的 `Intellisense 模式`(MSVC -> `windows-msvc-x64`, clang -> `windows-clang-x64`, GCC -> `windows-gcc-x64`)，并根据需要设置 `C++ 标准`（如 `c++17`、`c++20` 等）。
 
 现在，打开一个文件夹（`文件` -> `打开文件夹...`），新建一个 C++ 文件（如 `main.cpp`），输入一些代码（如 `#include <iostream>`），如果看到语法高亮和代码补全等功能正常工作，说明配置成功。
@@ -150,7 +151,7 @@ clangd 需要一个 `compile_commands.json` 文件来了解项目的编译选项
 ```
 > 注意
 >
-> 即便可以使用 `compile_flags.txt`，但推荐使用 `compile_commands.json`，因为它能提供更全面的编译信息。同时，如果没有 `compile_commands.json`，clangd **常常**找不到正确的包含目录（如在使用 MinGW 时，使用了 MSVC 的头文件），因而，在单文件项目中，不推荐使用 `clangd`。
+> 即便可以使用 `compile_flags.txt`，但推荐使用 `compile_commands.json`，因为它能提供更全面的编译信息。同时，如果没有 `compile_commands.json`，clangd **常常**找不到正确的包含目录（如在使用 MinGW 时，使用了 MSVC 的头文件），且难以配置得当，因而，在单文件项目中，不推荐使用 `clangd`。
 
 如果找不到 `compile_commands.json`，可以在 VSCode 设置中指定其路径（搜索 `clangd: Compile Commands`），或者将其放在项目根目录下。
 
@@ -164,7 +165,7 @@ clangd 需要一个 `compile_commands.json` 文件来了解项目的编译选项
 > 打开命令面板（<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>），输入 `restart language server` 并选择 `clangd: restart language server`，可以重启 clangd 语言服务器，应用新的配置。
 
 ### 关于单文件项目的编译和运行
-VSCode 本身并不包含编译和运行代码的功能，这些功能通常通过任务（Tasks）或扩展来实现。下面介绍两种常见的方法：
+VSCode 本身并不包含编译和运行代码的功能，这些功能通常通过任务和启动（Tasks and Launches）或扩展来实现。下面介绍两种常见的方法：
 
 #### 扩展（推荐）
 安装 **C/C++ Compile Run** 扩展后，可以通过命令面板运行 `C/C++: Compile & Run` 或打开右上角运行菜单来编译和运行当前文件（以 `C/C++:` 开头的才是**该扩展提供的**功能！另两个是 **C/C++** 扩展提供的**基于任务**的运行功能）。该扩展会自动检测使用的编译器，并生成相应的编译命令。

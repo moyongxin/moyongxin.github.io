@@ -5,12 +5,15 @@ pagination.pagerSize = 5
 defaultContentLanguage = "zh"
 comments = true
 
-[markup.goldmark.parser.attribute]
-block = true
-
 # Required for Chroma and the custom syntax highlighting.
 [markup.highlight]
 noClasses = false
+
+[markup.goldmark.renderer]
+unsafe = true
+
+[markup.goldmark.parser.attribute]
+block = true
 
 [module]
 # In case you would like to make changes to the theme and keep it locally in you repository,

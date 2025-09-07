@@ -2,9 +2,8 @@
 date = '{{ .Date }}'
 draft = true
 title = '{{ replace .File.ContentBaseName "-" " " | title }}'
-slug = '{{ replace .File.ContentBaseName "-" " " }}'
+slug = '{{ .File.ContentBaseName }}'
 author = 'qwertyuiop'
-cover = ""
 tags = []
 keywords = []
 readingTime = true

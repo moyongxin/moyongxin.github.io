@@ -125,7 +125,7 @@ extern "C" errno_t __cdecl _sopen_nolock(
 }
 ```
 将传入的路径转换为宽字符后，随后再调用 `_wsopen_nolock` 函数来打开文件。
-其中 `__acrt_get_utf8_acp_compatibility_codepage` 函数会根据当前系统的代码页返回相应的代码页（此处忽略 `CP_OEMCP` 的处理逻辑）：
+其中 `__acrt_get_utf8_acp_compatibility_codepage` 函数会根据当前系统的代码页返回相应的代码页（即 `CP_ACP`）（此处忽略 `CP_OEMCP` 的处理逻辑）：
 ```cpp
 // inc\corecrt_internal_win32_buffer.h:
 inline unsigned int __acrt_get_utf8_acp_compatibility_codepage()

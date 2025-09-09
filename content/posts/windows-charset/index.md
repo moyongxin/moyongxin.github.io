@@ -50,21 +50,22 @@ C/C++ 编译器通常支持多种源文件编码格式，如 UTF-8、GBK 等。�
 下面我们通过分析现代 Windows 的 C 运行时 [ucrt](https://devblogs.microsoft.com/cppblog/introducing-the-universal-crt/) 的源码来了解 Windows 中文环境下的一些本地化问题。本节的为命令行参数的本地化问题。
 
 ### 进程启动时的默认 locale
+[C locale](https://en.cppreference.com/w/cpp/locale.html) 决定了 C 运行时如何处理字符和字符串。在 Windows 上，ucrt 使用系统的默认 locale 来初始化 C locale。
 在 `main()` 函数被调用之前，ucrt 会初始化 locale，使用系统默认的 locale:
 ```cpp
 // locale\get_qualified_locale.cpp:
 BOOL __cdecl __acrt_get_qualified_locale(const __crt_locale_strings* lpInStr, UINT* lpOutCodePage, __crt_locale_strings* lpOutStr)
 {
-    ...
+    // ...
     //  if language defined ...
     if (*_psetloc_data->pchLanguage)
-    ...
+    // ...
     else
     {
         //  language is an empty string, use the User Default locale name
         GetLocaleNameFromDefault(_psetloc_data);
     }
-    ...
+    // ...
 }
 
 static void GetLocaleNameFromDefault (__crt_qualified_locale_data* _psetloc_data)
@@ -136,7 +137,7 @@ inline unsigned int __acrt_get_utf8_acp_compatibility_codepage()
     if (current_code_page == CP_UTF8) {
         return CP_UTF8;
     }
-    ...
+    // ...
     return CP_ACP;
 }
 ```
@@ -144,18 +145,18 @@ inline unsigned int __acrt_get_utf8_acp_compatibility_codepage()
 
 ## 以上问题的解决方案（使用 UTF-8 代码页）
 虽然使用 Unicode 版本的 Windows API 或 C 运行时函数可以避免上述问题，但在实际开发中，我们一般不使用 Unicode 版本的 C 运行时函数（如 `_wfopen`）来处理文件路径，因为这会影响程序的可移植性（如 Linux 下 `_wfopen` 并不存在）。因此，我们需要一种方法来确保命令行参数和文件路径都使用 UTF-8 编码，从而避免上述问题。
-Windows 10 1903 版本及更高版本不仅允许[强制设置系统默认代码页为 UTF-8](#强制使用-utf-8-代码页)，还允许程序将当前进程代码页设置为 UTF-8（代码页 65001）。
+Windows 10 1903 版本及更高版本不仅允许[强制设置系统默认代码页为 UTF-8](#强制使用-utf-8-代码页)，还允许程序将当前进程代码页设置为 UTF-8（代码页 65001）。由此一来，我们再[将源文件编码与可执行文件编码均设置为 UTF-8](#程序中的文本编码)，所有文本统一使用 UTF-8 处理，从而避免上述问题。
 
 根据[微软官方文档](https://learn.microsoft.com/en-us/windows/apps/design/globalizing/use-utf8-code-page)，我们可通过[应用程序清单文件](https://learn.microsoft.com/en-us/windows/win32/sbscs/application-manifests)，设置进程的代码页为 UTF-8：
 ```xml
 <assembly xmlns="urn:schemas-microsoft-com:asm.v1" manifestVersion="1.0" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3">
- ...
+ <!--...-->
   <asmv3:application>
     <asmv3:windowsSettings xmlns="http://schemas.microsoft.com/SMI/2019/WindowsSettings">
       <activeCodePage>UTF-8</activeCodePage>
     </asmv3:windowsSettings>
   </asmv3:application>
- ...
+ <!--...-->
 </assembly>
 ```
 如此一来，`GetCommandLineA` 返回的字符串将使用 UTF-8 编码，从而减少了命令行参数中的编码的不确定性问题。

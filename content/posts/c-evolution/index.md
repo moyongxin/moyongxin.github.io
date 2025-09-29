@@ -1,6 +1,6 @@
 +++
 date = '2025-09-29T13:59:26+08:00'
-draft = true
+draft = false
 title = 'C 语言的演进（至 C23）, 以及和 C++ 的部分差异'
 slug = 'c-evolution'
 author = 'qwertyuiop'

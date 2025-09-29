@@ -1,8 +1,8 @@
 contentTypeName = "posts"
 showMenuItems = 3
 showLanguageSelector = true
-fullWidthTheme = true
-centerTheme = false
+fullWidthTheme = false
+centerTheme = true
 autoCover = true
 showLastUpdated = true
 readingTime = true

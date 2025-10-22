@@ -288,6 +288,7 @@ cmake_minimum_required(VERSION 3.20)
 project(MyProject)
 
 add_executable(a main.c some_module.c)
+target_compile_options(a PRIVATE -Wall -g)
 ```
 
 通过使用元构建系统，开发者可以更专注于项目的逻辑，而不必过多关注底层的构建细节。这种方式不仅提高了开发效率，也降低了因手动维护构建配置而导致的错误风险。

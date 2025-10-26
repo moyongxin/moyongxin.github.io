@@ -97,13 +97,16 @@ int main() {
 ```
 这样 `main.c` 中就能合法使用 `helper_function` 函数和 `global_var` 变量了。
 
-为了编译这个项目，我们首先需要将每个源文件编译成目标文件（我以 Windows 上的 MinGW 为例）：
+为了编译这个项目，我们首先需要将每个源文件编译成目标文件（我以 Windows 上的 MinGW 工具链为例，在 Powershell 中执行命令）：
 ```powershell
 gcc -c main.c -o main.o
 gcc -c some_module.c -o some_module.o
 ```
 
 为了满足你们的好奇心，我们可以看一眼生成的 `main.o` 引用的符号以及里面的机器代码：
+```powershell
+objdump -t -d main.o
+```
 
 在我的环境中，输出如下：
 ```

@@ -15,6 +15,15 @@ unsafe = true
 [markup.goldmark.parser.attribute]
 block = true
 
+# Captures LaTeX delimiters so Markdown does not eat them.
+# Rendering stays off unless a page sets math = true.
+[markup.goldmark.extensions.passthrough]
+enable = true
+
+[markup.goldmark.extensions.passthrough.delimiters]
+block = [['\[', '\]'], ['$$', '$$']]
+inline = [['\(', '\)']]
+
 [module]
 # In case you would like to make changes to the theme and keep it locally in you repository,
 # uncomment the line below (and correct the local path if necessary).

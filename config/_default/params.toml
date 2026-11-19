@@ -7,3 +7,5 @@ autoCover = true
 showLastUpdated = true
 readingTime = true
 Toc = true
+# Per-page math = true overrides this and renders LaTeX at build time.
+math = false

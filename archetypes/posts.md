@@ -9,6 +9,7 @@ keywords = []
 readingTime = true
 showFullContent = false
 hideComments = false
+math = false
 +++
 
 <!-- CC-BY-SA 4.0 -->
